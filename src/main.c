@@ -188,6 +188,8 @@ int main(void)
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){}
 		AD_value=ADC_GetConversionValue(ADC1);
 
+		klavesnica(AD_value);
+
   }
   return 0;
 }
