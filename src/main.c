@@ -144,6 +144,9 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
+		ADC_SoftwareStartConv(ADC1);
+		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){}
+		AD_value=ADC_GetConversionValue(ADC1);
 
   }
   return 0;
