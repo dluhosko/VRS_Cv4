@@ -97,6 +97,46 @@ while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET)
 //ADC_SoftwareStartConv(ADC1);
 }
 
+void klavesnica(int value)
+{
+	int i;
+	if ((value> 1800)&&(value < 2200))
+	{
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,SET);
+		for (i=0;i<10000;i++);
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,RESET);
+		  for (i=0;i<10000;i++);
+	}
+	if ((value > 2700)&&(value<3100))
+	{
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,SET);
+		for (i=0;i<50000;i++);
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,RESET);
+		  for (i=0;i<50000;i++);
+	}
+	if ((value > 3200)&&(value<3550))
+	{
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,SET);
+		for (i=0;i<100000;i++);
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,RESET);
+		  for (i=0;i<100000;i++);
+	}
+	if ((value > 3550)&&(value<3800))
+	{
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,SET);
+		for (i=0;i<200000;i++);
+		  GPIO_WriteBit(GPIOA,GPIO_Pin_5,RESET);
+		  for (i=0;i<200000;i++);
+	}
+	if (value > 3800)
+		{
+			  GPIO_WriteBit(GPIOA,GPIO_Pin_5,SET);
+			for (i=0;i<400000;i++);
+			  GPIO_WriteBit(GPIOA,GPIO_Pin_5,RESET);
+			  for (i=0;i<400000;i++);
+		}
+}
+
 int main(void)
 {
 	  int i = 0;
